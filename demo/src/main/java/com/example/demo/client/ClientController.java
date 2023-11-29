@@ -1,5 +1,9 @@
 package com.example.demo.client;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +21,8 @@ public class ClientController {
 
     @GetMapping
     public List<Client> getClients() {
-        return clientService.getClients();
+        return List.of(
+            new Client(67l, "lsji",  "dsfioh@gmail.com", LocalDate.of(2000, Month.MAY, 4), 43)
+        );
     };
 }
