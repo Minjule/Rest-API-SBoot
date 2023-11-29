@@ -21,8 +21,6 @@ public class ClientController {
 
     @GetMapping
     public List<Client> getClients() {
-        return List.of(
-            new Client(67l, "lsji",  "dsfioh@gmail.com", LocalDate.of(2000, Month.MAY, 4), 43)
-        );
+        return clientService.getClients();
     };
 }

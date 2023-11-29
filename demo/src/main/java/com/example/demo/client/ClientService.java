@@ -4,13 +4,21 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class ClientService {
+
+    private final ClientRepository clientRepository;
+
+    @Autowired
+    public ClientService(ClientRepository clientRepository){
+        this.clientRepository = clientRepository;
+    }
     public List<Client> getClients(){
-        return List.of(
-            new Client(67l, "lsji",  "dsfioh@gmail.com", LocalDate.of(2000, Month.MAY, 4), 43)
-        );
+        return clientRepository.findAll();
     }
 }
